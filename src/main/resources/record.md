@@ -24,6 +24,11 @@ CREATE TABLE user
     name VARCHAR(50)
 );
 
+select * from user;
 insert into user values('1', 'liuchanghong');
+insert into user values('2', 'Lawrence');
+insert into user values('3', 'Gukeyan');
+
+
 
 ```

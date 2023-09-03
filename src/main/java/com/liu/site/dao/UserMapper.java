@@ -10,4 +10,7 @@ import java.util.List;
 public interface UserMapper {
     @Select("select * from user")
     List<User> getAll();
+
+    @Select("select * from user where id=#{id}")
+    User getUserById(String id);
 }
