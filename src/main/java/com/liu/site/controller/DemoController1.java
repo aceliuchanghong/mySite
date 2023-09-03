@@ -7,9 +7,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("demo")
 @RestController
 public class DemoController1 {
+
+
+    // http://127.0.0.1:8888/demo/test
     @GetMapping("/test")
-    //http://127.0.0.1:8888/demo/test
-    public String test(){
+    public String test() {
         return "start";
     }
 }
