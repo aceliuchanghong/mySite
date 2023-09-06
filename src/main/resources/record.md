@@ -37,4 +37,5 @@ insert into user values('3', 'Gukeyan');
 1.安装vue插件
 2.安装 Node.js 和 npm (https://www.liaoxuefeng.com/wiki/1022910821149312/1023025597810528)
 3.npm install element-ui -S
+4.创建项目 (https://www.jb51.net/article/242011.htm)
 ```
