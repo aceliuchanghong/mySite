@@ -4,6 +4,7 @@ import com.liu.site.dao.UserMapper;
 import com.liu.site.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,7 +23,8 @@ public class UserController {
         return userMapper.getAll();
     }
 
-    // http://127.0.0.1:8888/User/getAllUser2?id=1
+    // http://127.0.0.1:8888/getAllUser/1
+    @GetMapping("/getAllUser/{id}")
     public User getAllUser2(@PathVariable String id) {
         return userMapper.getUserById(id);
     }
