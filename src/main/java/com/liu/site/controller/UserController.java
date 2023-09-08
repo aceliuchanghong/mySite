@@ -29,6 +29,11 @@ public class UserController {
         return userMapper.getUserById(id);
     }
 
+    @RequestMapping("/getUserName/{id}")
+    public String getAllUser3(@PathVariable String id) {
+        return userMapper.getUserNameById(id);
+    }
+
 
     @RequestMapping("/00")
     public String test(Model model) {
