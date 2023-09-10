@@ -3,46 +3,48 @@ package com.liu.site.controller;
 import com.liu.site.dao.UserMapper;
 import com.liu.site.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 
-@RestController
+@RestController //仅仅请求数据
+@RequestMapping("userapi")
 public class UserController {
 
     @Autowired
     private UserMapper userMapper;
 
-    @RequestMapping("/getAllUser")
+    @RequestMapping("AllUser")
     public List<User> getAllUser() {
         return userMapper.getAll();
     }
 
+    @RequestMapping("/getUserName/{id}")
+    public String getAllUser3(@PathVariable String id) {
+        return userMapper.getUserNameById(id)+" 666";
+    }
+
+
     // http://127.0.0.1:8888/getAllUser/1
-    @GetMapping("/getAllUser/{id}")
+    @GetMapping("/user/{id}")
     public User getAllUser2(@PathVariable String id) {
         return userMapper.getUserById(id);
     }
 
-    @RequestMapping("/getUserName/{id}")
-    public String getAllUser3(@PathVariable String id) {
-        return userMapper.getUserNameById(id);
+    @PostMapping("/user")
+    public String save(User user){
+        return "add user";
     }
 
-
-    @RequestMapping("/00")
-    public String test(Model model) {
-        model.addAttribute("name","lch");
-        model.addAttribute("age","25");
-        model.addAttribute("info","000");
-        return "00";
+    @PutMapping("/user")
+    public String update(User user){
+        return "update user";
     }
 
-
+    @DeleteMapping("/user/{id}")
+    public String deleteUserById(@PathVariable String id){
+        return "delete user by id";
+    }
 
 }

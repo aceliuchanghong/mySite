@@ -1,17 +1,19 @@
 package com.liu.site.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@RequestMapping("demo")
-@RestController
+@Controller  //请求页面和数据
 public class DemoController1 {
 
 
     // http://127.0.0.1:8888/demo/test
-    @GetMapping("/test")
-    public String test() {
-        return "start";
+    @RequestMapping("/test")
+    public String test(Model model) {
+        model.addAttribute("name","lch");
+        model.addAttribute("age","25");
+        model.addAttribute("info","000");
+        return  "00";
     }
 }
