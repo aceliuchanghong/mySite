@@ -26,10 +26,10 @@ public class UserController {
     }
 
 
-    // http://127.0.0.1:8888/getAllUser/1
+    // http://127.0.0.1:8888/userapi/user/1
     @GetMapping("/user/{id}")
     public User getAllUser2(@PathVariable String id) {
-        return userMapper.getUserById(id);
+        return userMapper.findById(id);
     }
 
     @PostMapping("/user")
