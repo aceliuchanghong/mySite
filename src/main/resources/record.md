@@ -96,3 +96,29 @@ db
 show dbs
 db.mongoTest.insertOne({"lch":"lchTest"})
 ```
+### https://open.yesapi.cn/list79.html
+## 表结构设计
+### 涉及用户参与
+- 用户信息表
+
+### 仅网站owner参与
+- 数据相关
+
+- 操作相关
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
