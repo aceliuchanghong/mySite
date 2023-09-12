@@ -1,6 +1,6 @@
 package com.liu.site.controller;
 
-import com.liu.site.dao.UserMapper;
+import com.liu.site.mapper.UserMapper;
 import com.liu.site.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

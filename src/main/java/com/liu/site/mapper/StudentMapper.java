@@ -1,4 +1,4 @@
-package com.liu.site.dao;
+package com.liu.site.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.liu.site.pojo.Student;

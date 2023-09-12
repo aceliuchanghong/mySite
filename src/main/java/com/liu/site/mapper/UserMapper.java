@@ -1,4 +1,4 @@
-package com.liu.site.dao;
+package com.liu.site.mapper;
 
 import com.liu.site.pojo.User;
 import org.apache.ibatis.annotations.*;
