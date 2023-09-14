@@ -64,9 +64,20 @@ CREATE TABLE sc
     cno   CHAR(40) NOT NULL COMMENT '课程ID（参照course，Cno）',
     grade SMALLINT COMMENT '成绩'
 );
+CREATE TABLE orders
+(
+    id  CHAR(20) NOT NULL COMMENT '订单id',
+    ordername  CHAR(20) NOT NULL COMMENT '货物名称',
+    uid  CHAR(20) NOT NULL COMMENT '客户'
+);
 
 insert into student
 values ('1', 'Lawrence', 'M', 25, 'Math');
+
+insert into orders
+values ('1', '水', '1');
+insert into orders
+values ('2', '糖', '3');
 
 ```
 
