@@ -2,7 +2,6 @@
 import os
 import openai
 
-def solution
 openai.api_key = os.getenv("OPENAI_API_KEY")
 audio_file= open("./data/generative_ai_topics_clip.mp3", "rb")
 transcript = openai.Audio.transcribe("whisper-1", audio_file, response_format="srt",
