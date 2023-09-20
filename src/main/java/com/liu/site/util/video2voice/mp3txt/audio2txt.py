@@ -1,6 +1,9 @@
 # https://blog.csdn.net/FrenzyTechAI/article/details/131259440
 import os
+import sys
 import openai
+import io
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 audio_file= open("./data/generative_ai_topics_clip.mp3", "rb")
