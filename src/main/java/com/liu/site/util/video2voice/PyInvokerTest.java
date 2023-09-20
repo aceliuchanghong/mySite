@@ -7,6 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.io.File;
 
 public class PyInvokerTest {
     public void pyInvoker(String filename, ArrayList<String> args) {
@@ -23,17 +24,23 @@ public class PyInvokerTest {
             try {
                 Files.createDirectories(path);
             } catch (IOException e) {
-                System.out.println("无法创建文件夹: " + e.getMessage());
+                System.out.println("Err 无法创建文件夹: " + e.getMessage());
             }
         }
         StringBuilder s = new StringBuilder();
         for (String arg : args) {
+            //参数
             s = new StringBuilder(s + " " + arg);
         }
-        //System.out.println(s);
+
+        File file = new File(filePath + filename);
+        if (!file.exists()) {
+            System.out.println("Err 没有对应文件:" + filePath + filename);
+            return;
+        }
         try {
             proc = Runtime.getRuntime().exec("python " + filePath + filename + s);
-            System.out.println("Running:python " + filePath + filename+s);
+            System.out.println("Running:python " + filePath + filename + s);
             BufferedReader in = new BufferedReader(new InputStreamReader(proc.getInputStream()));
             String line; //此处别删除
             while ((line = in.readLine()) != null) {
@@ -50,7 +57,8 @@ public class PyInvokerTest {
     public static void main(String[] args) {
         ArrayList<String> myargs = new ArrayList<>();
         myargs.add("test001");
-        myargs.add("test002");
+        myargs.add("中文");
+        myargs.add("test003");
         new PyInvokerTest().pyInvoker("test.py", myargs);
     }
 
