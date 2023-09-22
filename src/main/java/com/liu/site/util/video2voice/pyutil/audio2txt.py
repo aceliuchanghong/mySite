@@ -1,4 +1,3 @@
-# https://blog.csdn.net/FrenzyTechAI/article/details/131259440
 import os
 import sys
 import openai
@@ -6,19 +5,19 @@ import io
 
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
+def getSrtFile(audio_file, prompt, srcpath="../mp3/",
+               despath="../srt/"):
 
-# fileName = sys.argv[1]
-# prompt = sys.argv[2]
-# openai.api_key = os.getenv("OPENAI_API_KEY")
-# audio_file = open("./data/generative_ai_topics_clip.mp3", "rb")
-# transcript = openai.Audio.transcribe("whisper-1", audio_file, response_format="srt",
-#                                      prompt="这是一段Onboard播客，里面会聊到PALM这个大语言模型。这个模型也叫做Pathways Language Model。")
-# print(transcript)
-
-def getSrtFIle(audio_file, prompt, srcpath="src/main/java/com/liu/site/util/video2voice/mp3/",
-               despath="src/main/java/com/liu/site/util/video2voice/srt/"):
-    realFilePath = srcpath + audio_file
+    proxyHost = "127.0.0.1"
+    proxyPort = 10809
+    proxies = {
+        "http": f"http://{proxyHost}:{proxyPort}",
+        "https": f"https://{proxyHost}:{proxyPort}"
+    }
+    openai.proxy = proxies
     openai.api_key = os.getenv("OPENAI_API_KEY")
+
+    realFilePath = srcpath + audio_file
     try:
         if not os.path.exists(realFilePath):
             print("Err not exists:" + realFilePath)
@@ -31,5 +30,34 @@ def getSrtFIle(audio_file, prompt, srcpath="src/main/java/com/liu/site/util/vide
     except Exception as e:
         print("Input Error:", e)
 
+def getSrtFileWithoutProxy(audio_file, prompt, srcpath="../mp3/",
+               despath="../srt/"):
 
-getSrtFIle("saveHeart.mp3", "this is a audio about heart")
+    openai.api_key = os.getenv("OPENAI_API_KEY")
+    realFilePath = srcpath + audio_file
+    try:
+        if not os.path.exists(realFilePath):
+            print("Err not exists:" + realFilePath)
+            return
+        file = open(realFilePath, "rb")
+        transcript = openai.Audio.transcribe("whisper-1", file, response_format="srt",
+                                             prompt=prompt)
+        with open(despath + audio_file + ".srt", 'w') as f:
+            f.write(transcript)
+    except Exception as e:
+        print("Input Error:", e)
+
+# getSrtFile("saveHeart.mp3", "this is an audio about hearts which calling on people to protect their hearts")
+
+fileName = sys.argv[1]
+prompt = sys.argv[2]
+srcpath = sys.argv[3]
+despath = sys.argv[4]
+if 3 > len(sys.argv) or 5 < len(sys.argv):
+    print("请至少输入2个参数,最多4个:1.文件名字,2.prompt,3.srcpath,4.despath")
+elif 2 == len(sys.argv) - 1:
+    getSrtFile(fileName, prompt)
+elif 3 == len(sys.argv) - 1:
+    getSrtFile(fileName, prompt, srcpath)
+elif 4 == len(sys.argv) - 1:
+    getSrtFile(fileName, prompt, srcpath, despath)

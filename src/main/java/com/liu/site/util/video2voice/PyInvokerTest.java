@@ -10,9 +10,9 @@ import java.util.ArrayList;
 import java.io.File;
 
 public class PyInvokerTest {
-    public void pyInvoker(String filename, ArrayList<String> args) {
+    public void pyInvoker(String pyfilename, ArrayList<String> filenameargs) {
         String DEFAULT_PATH = "src/main/java/com/liu/site/util/video2voice/pyutil/";
-        pyInvoker(filename, args, DEFAULT_PATH);
+        pyInvoker(pyfilename, filenameargs, DEFAULT_PATH);
     }
 
     public void pyInvoker(String filename, ArrayList<String> args, String filePath) {
