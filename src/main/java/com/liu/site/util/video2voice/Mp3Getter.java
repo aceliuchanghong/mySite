@@ -13,14 +13,14 @@ import java.util.ArrayList;
 
 public class Mp3Getter {
     public void getMp3(ArrayList<String> FileNames) {
-        String SourcePath = "src/main/java/com/liu/site/util/video2voice/mp4src/";
+        String SourcePath = "src/main/java/com/liu/site/util/video2voice/mp4/";
         getMp3(FileNames, SourcePath);
 
     }
 
     public void getMp3(ArrayList<String> FileNames, String SourcePath) {
         if (SourcePath == null || SourcePath.isEmpty()) {
-            SourcePath = "src/main/java/com/liu/site/util/video2voice/mp4src/";
+            SourcePath = "src/main/java/com/liu/site/util/video2voice/mp4/";
         }
         for (String element : FileNames) {
             Path filePath = Paths.get(SourcePath + element);
@@ -33,13 +33,13 @@ public class Mp3Getter {
     }
 
     public void doIt(String FileName) {
-        String DesPath = "src/main/java/com/liu/site/util/video2voice/mp3out/";
+        String DesPath = "src/main/java/com/liu/site/util/video2voice/mp3/";
         doIt(FileName, DesPath);
     }
 
     public void doIt(String FileName, String DesPath) {
         if (DesPath == null || DesPath.isEmpty()) {
-            DesPath = "src/main/java/com/liu/site/util/video2voice/mp3out/";
+            DesPath = "src/main/java/com/liu/site/util/video2voice/mp3/";
         }
         Path path = Paths.get(DesPath);
 

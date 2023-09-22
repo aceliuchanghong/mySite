@@ -1,4 +1,3 @@
-# https://blog.csdn.net/zhengzaifeidelushang/article/details/116016447
 import sys
 import io
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')

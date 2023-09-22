@@ -11,7 +11,7 @@ import java.io.File;
 
 public class PyInvokerTest {
     public void pyInvoker(String filename, ArrayList<String> args) {
-        String DEFAULT_PATH = "src/main/java/com/liu/site/util/video2voice/mp3txt/";
+        String DEFAULT_PATH = "src/main/java/com/liu/site/util/video2voice/pyutil/";
         pyInvoker(filename, args, DEFAULT_PATH);
     }
 
