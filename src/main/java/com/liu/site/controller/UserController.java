@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController //仅仅请求数据
 @RequestMapping("userapi")
+@CrossOrigin //允许跨域
 public class UserController {
 
     @Autowired
