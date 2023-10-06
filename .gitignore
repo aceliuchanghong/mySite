@@ -23,3 +23,6 @@
 hs_err_pid*
 replay_pid*
 target/*
+src/main/java/com/liu/site/util/video2voice/mp3/*
+src/main/java/com/liu/site/util/video2voice/mp4/*
+src/main/java/com/liu/site/util/video2voice/srt/*
