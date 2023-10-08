@@ -100,7 +100,7 @@ public class Mp3Getter {
         files.add("test.mp4");
         files.add("test3.mp4");
         files.add("1245307281-1-192.mp4");
-        files.add("1245307281-1-192.mp4");
+        files.add("WeChat_20231007161725.mp4");
         new Mp3Getter().getMp3(files);
     }
 }

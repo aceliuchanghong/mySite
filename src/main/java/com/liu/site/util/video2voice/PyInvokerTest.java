@@ -56,10 +56,10 @@ public class PyInvokerTest {
 
     public static void main(String[] args) {
         ArrayList<String> myargs = new ArrayList<>();
-        myargs.add("test001");
-        myargs.add("中文");
-        myargs.add("test003");
-        new PyInvokerTest().pyInvoker("test.py", myargs);
+        myargs.add("WeChat_20231007161725.mp3");
+        myargs.add("中文视频-教学-如何复盘");
+        // myargs.add("test003");
+        new PyInvokerTest().pyInvoker("audio2txt.py", myargs);
     }
 
 }
